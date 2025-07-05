@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import styles from "../../styles/Blog.module.css";
 
 export async function getServerSideProps({ params }) {
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
@@ -16,9 +16,9 @@ export async function getServerSideProps({ params }) {
 
 export default function BlogPage({ blogList }) {
     return (
-        <div style={{ padding: "2rem" }}>
-            <h1>{blogList.title}</h1>
-            <p>{blogList.body}</p>
+        <div className={styles.wrapper}>
+            <h1 className={styles.title}>{blogList.title}</h1>
+            <p className={styles.body}>{blogList.body}</p>
         </div>
     )
 }

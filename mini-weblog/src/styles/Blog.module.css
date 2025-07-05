@@ -1,0 +1,20 @@
+.wrapper {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fafafa;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}

@@ -1,0 +1,25 @@
+.wrapper {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: crimson;
+  margin-bottom: 1rem;
+}
+
+.link {
+  color: #0057bb;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.text{
+    padding: 10px;
+    font-size: 1.5rem;
+}

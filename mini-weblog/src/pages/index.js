@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Styles from "@/styles/Home.module.css"
 
 export default function HomePage() {
   const blogs = [
@@ -8,12 +9,12 @@ export default function HomePage() {
   ]
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>List of Blogs</h1>
-      <ul>
+    <div className={Styles.container}>
+      <h1 className={Styles.heading}>List of Blogs</h1>
+      <ul className={Styles.list}>
         {blogs.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>📝 {blog.title}</Link>
+          <li className={Styles.item} key={blog.id}>
+            <Link className={Styles.link} href={`/blog/${blog.id}`}>📝 {blog.title}</Link>
           </li>
         ))}
       </ul>
