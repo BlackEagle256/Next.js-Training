@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Button from "./components/Button";
+import ProfileCard from "./ProfileCard";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ padding: "2rem" }}>
+        <ProfileCard />
         <h1>صفحه اصلی</h1>
         <Button text="کلیک کن" />
       </div>
