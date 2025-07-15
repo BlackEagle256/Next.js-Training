@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "./components/Header";
 
 export default function HomePage() {
   return (
@@ -11,14 +12,7 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="bg-white flex justify-between shadow-md px-6 py-4 items-center">
-        <h1 className="font-bold text-blue-600 text-2xl">NextProfile</h1>
-        <nav className="space-x-4">
-          <a href="#" className="text-gray-700 hover:text-blue-500 ">Home</a>
-          <a href="#" className="text-gray-700 hover:text-blue-500">About Us</a>
-          <a href="#" className="text-gray-700 hover:text-blue-500">Contact Us</a>
-        </nav>
-      </header>
+      <Header></Header>
 
       <main className="p-6 flex flex-col md:flex-row md:items-start gap-6">
         <section className="bg-white p-6 rounded-xl shadow-lg flex-1 text-center">
