@@ -6,19 +6,16 @@ export default function Login() {
     const [username, setUsername] = useState("");
     const router = useRouter();
 
-    const handleLogin = () => {
-        if (username) {
-            localStorage.setItem("username", username)
-            router.push("./dashboard")
+    const handleSubmit = async () => {
+        const res = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username })
+        })
+        if (res.ok) {
+            router.push('./dashboard')
         }
     }
-
-    useEffect(() => {
-        const user = localStorage.getItem("username");
-        if (user) {
-            router.replace("/dashboard");
-        }
-    }, []);
 
     return (
         <div className='h-screen flex flex-col justify-center items-center gap-4 bg-gray-100'>
@@ -30,7 +27,7 @@ export default function Login() {
                 onChange={(e) => setUsername(e.target.value)}
             />
             <button
-                onClick={handleLogin}
+                onClick={handleSubmit}
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
             >
                 Login

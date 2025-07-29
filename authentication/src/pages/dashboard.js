@@ -1,34 +1,30 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react'
+export async function getServerSideProps({req}) {
+    const cookie = req.headers.cookie || "";
+    const user = cookie
+        .split(";")
+        .find((c) => c.trim().startsWith("user="))
+        ?.split("=")[1];
 
-export default function Dashboard() {
-    const [user, setUser] = useState(null);
-    const router = useRouter();
-
-    useEffect(() => {
-        const storedUser = localStorage.getItem('username')
-        if (!storedUser) {
-            router.replace("./login")
+    if (!user) {
+        return {
+            redirect: {
+                destination: "./login",
+                permanent: false
+            }
         }
-        else {
-            setUser(storedUser)
-        }
-    }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem('username');
-        router.push('./login')
     }
 
+    return {
+        props: {
+            user,
+        }
+    }
+}
+
+export default function Dashboard({ user }) {
     return (
-        <div className='flex flex-col items-center justify-center h-screen bg-green-300 gap-4'>
-            <h1 className='text-2xl font-bold'>Welcome, {user}</h1>
-            <button
-                onClick={handleLogout}
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-            >
-                Logout
-            </button>
+        <div className="h-screen flex flex-col items-center justify-center">
+            <h1 className="text-2xl font-bold">Welcome, {user}!</h1>
         </div>
     )
 }
