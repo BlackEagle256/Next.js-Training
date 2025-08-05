@@ -1,11 +1,30 @@
 import React, { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
+
+        try {
+            const res = await fetch(`/api/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            })
+            if (res.ok) {
+                toast.success("Login Was Succesful!")
+            }
+            else if (res.status === 401) {
+                toast.error("Username or Password is wrong")
+            }
+        }
+        catch (error) {
+            console.error(error)
+        }
+
         console.log("Login: ", { username, password });
     }
 
@@ -38,6 +57,7 @@ export default function Login() {
                     Sign in
                 </button>
             </form>
+            <ToastContainer />
         </div>
     )
 }
