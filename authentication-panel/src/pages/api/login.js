@@ -23,6 +23,8 @@ export default async function handler(req, res) {
 
         const user = rows[0];
 
+        res.setHeader("Set-Cookie", `user=${username}; Path=/; HttpOnly`)
+
         return res.status(200).json({
             message: "Login successful",
             user: {

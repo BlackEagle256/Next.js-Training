@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 
 export default function Login() {
+    const router = useRouter();
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,6 +19,10 @@ export default function Login() {
             })
             if (res.ok) {
                 toast.success("Login Was Succesful!")
+                setTimeout(() => {
+                    localStorage.setItem("user", username);
+                    router.push("/dashboard");
+                }, 6000);
             }
             else if (res.status === 401) {
                 toast.error("Username or Password is wrong")
