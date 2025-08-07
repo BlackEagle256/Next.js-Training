@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuth } from '../../context/AuthContext'
+import { useAuth } from '../components/context/AuthContext'
 
 export default function Header() {
     const { user, logout } = useAuth()
@@ -17,6 +17,6 @@ export default function Header() {
                 <span>Not logged in</span>
             )}
         </header>
-        
+
     )
 }
