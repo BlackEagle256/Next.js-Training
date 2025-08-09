@@ -16,9 +16,17 @@ export default function Profile() {
     }
 
     return (
-        <div style={{ padding: 20 }}>
-            <h1>Profile Page</h1>
-            <p>Name: {user.name}</p>
+        <div className='w-full h-screen flex flex-col justify-center items-center text-center pt-14'>
+            <div className='flex flex-col items-center justify-center'>
+                <h1>Profile Page</h1>
+                <p>Name: {user.name}</p>
+                <button
+                    className='bg-blue-500 px-6 py-4 rounded-xl my-4 text-white'
+                    onClick={() => login("MH")}
+                >
+                    Change Name
+                </button>
+            </div>
         </div>
     )
 }
