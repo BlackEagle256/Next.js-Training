@@ -1,7 +1,9 @@
-import { useAuth } from '@/context/AuthContext'
+// import { useAuth } from '@/context/AuthContext'      API-Context
+import { useAuthStore } from '@/context/store/authStore';   //Zustand
 
 export default function Home() {
-  const { isLoggedIn, user, login, logout } = useAuth();
+  // const { isLoggedIn, user, login, logout } = useAuth();        //API-Context
+  const { isLoggedIn, user, login, logout } = useAuthStore();   //Zustand
 
   return (
     <div className='w-full h-screen flex flex-col justify-center items-center text-center pt-14'>

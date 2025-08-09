@@ -1,8 +1,10 @@
-import { useAuth } from '@/context/AuthContext'
+// import { useAuth } from '@/context/AuthContext'      API-Context
+import { useAuthStore } from '@/context/store/authStore';   //Zustand
 import React from 'react'
 
 export default function Profile() {
-    const { isLoggedIn, user, login, logout } = useAuth();
+    // const { isLoggedIn, user, login, logout } = useAuth();        //API-Context
+    const { isLoggedIn, user, login, logout } = useAuthStore();   //Zustand    
 
     console.log([
         { isLoggedIn },
